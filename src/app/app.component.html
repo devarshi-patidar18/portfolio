@@ -1,22 +1,50 @@
-<!-- Navbar -->
-  <header class="fixed w-full bg-white shadow-md z-50">
+<div class="bg-gray-50 text-gray-900 bg-primary-900 text-gray-100 transition-colors duration-300">
+  <header class="fixed w-full bg-white bg-gray-800 shadow-md z-50 transition-colors duration-300">
     <nav class="container mx-auto flex justify-between items-center py-4 px-6">
-      <h1 class="text-2xl font-bold text-blue-600">Devarshi Patidar</h1>
-      <ul class="flex space-x-6">
-        <li><a href="#about" class="hover:text-blue-600">About</a></li>
-        <li><a href="#skills" class="hover:text-blue-600">Skills</a></li>
-        <li><a href="#projects" class="hover:text-blue-600">Projects</a></li>
-        <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+      <!-- Logo -->
+      <h1 class="text-2xl font-bold text-blue-600 text-blue-400">Devarshi Patidar</h1>
+
+      <!-- Desktop Menu -->
+      <ul class="hidden md:flex space-x-6">
+        <li><a routerLink="/about" class="hover:text-blue-600 hover:text-blue-400">About</a></li>
+        <li><a routerLink="/skills" class="hover:text-blue-600 hover:text-blue-400">Skills</a></li>
+        <li><a routerLink="/projects" class="hover:text-blue-600 hover:text-blue-400">Projects</a></li>
+        <li><a routerLink="/contact" class="hover:text-blue-600 hover:text-blue-400">Contact</a></li>
       </ul>
+
+      <!-- Dark Mode + Mobile Menu Button -->
+      <div class="flex items-center space-x-4">
+        <!-- Dark Mode Toggle -->
+        <!-- <button (click)="" class="p-2 rounded-full bg-primary- bg-gray-700 hover:scale-110 transition">
+        {{ themeIcon }}
+      </button> -->
+
+        <!-- Mobile Menu Toggle -->
+        <button class="md:hidden p-2 rounded bg-gray-200 bg-primary-700" (click)="toggleMenu()">
+          ☰
+        </button>
+      </div>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div *ngIf="isMenuOpen" class="md:hidden bg-white bg-gray-800 shadow-md">
+      <ul class="flex flex-col space-y-4 p-6">
+        <li><a routerLink="/about" (click)="closeMenu()">About</a></li>
+        <li><a routerLink="/skills" (click)="closeMenu()">Skills</a></li>
+        <li><a routerLink="/projects" (click)="closeMenu()">Projects</a></li>
+        <li><a routerLink="/contact" (click)="closeMenu()">Contact</a></li>
+      </ul>
+    </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center px-6">
+  <section
+    class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center px-6">
     <div>
-      <h2 class="text-4xl md:text-6xl font-bold">Hi, I'm Devarshi 👋</h2>
-      <p class="mt-4 text-lg md:text-xl">Java | Spring Boot | Angular | SQL | MongoDB | SAP</p>
-      <a href="#projects" class="mt-6 inline-block bg-white text-blue-600 font-semibold px-6 py-3 rounded-full shadow-md hover:bg-gray-100 transition">
+      <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold">Hi, I'm Devarshi 👋</h2>
+      <p class="mt-4 text-base sm:text-lg md:text-xl">Java | Spring Boot | Angular | SQL | MongoDB | SAP</p>
+      <a href="#projects"
+        class="mt-6 inline-block bg-white text-blue-600 font-semibold px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-md hover:bg-gray-100 transition">
         View My Work
       </a>
     </div>
@@ -26,68 +54,134 @@
   <section id="about" class="container mx-auto py-16 px-6 text-center">
     <h3 class="text-3xl font-bold mb-6">About Me</h3>
     <p class="max-w-2xl mx-auto text-gray-600">
-      I'm a passionate software developer with 3+ years of experience in building scalable applications. 
+      I'm a passionate software developer with 3+ years of experience in building scalable applications.
       I specialize in Java, Spring Boot, Angular, and modern web technologies.
     </p>
+    <div class="mt-10 max-w-xl mx-auto bg-white rounded-xl shadow-lg p-6 sm:p-8 text-left">
+      <ul class="space-y-4">
+        <li class="flex flex-col sm:flex-row sm:items-center">
+          <span class="font-semibold text-blue-600 sm:w-40">Name:</span>
+          <span class="text-gray-800">Devarshi Patidar</span>
+        </li>
+        <li class="flex flex-col sm:flex-row sm:items-center">
+          <span class="font-semibold text-blue-600 sm:w-40">Contact Number:</span>
+          <span class="text-gray-800">+91-9753684208</span>
+        </li>
+        <li class="flex flex-col sm:flex-row sm:items-center">
+          <span class="font-semibold text-blue-600 sm:w-40">Address:</span>
+          <span class="text-gray-800">Indore, Madhya Pradesh, India</span>
+        </li>
+        <li class="flex flex-col sm:flex-row sm:items-center">
+          <span class="font-semibold text-blue-600 sm:w-40">Experience:</span>
+          <span class="text-gray-800">3+ years in software development</span>
+        </li>
+        <li class="flex flex-col sm:flex-row sm:items-center">
+          <span class="font-semibold text-blue-600 sm:w-40">Email:</span>
+          <a href="mailto:devarshi.patidar@gmail.com"
+            class="text-blue-500 hover:underline break-all">devarshi.patidar&#64;gmail.com</a>
+        </li>
+        <li class="flex flex-col sm:flex-row sm:items-center">
+          <span class="font-semibold text-blue-600 sm:w-40">LinkedIn:</span>
+          <a href="https://www.linkedin.com/in/devarshi-patidar-51a654177"
+            class="text-blue-500 hover:underline break-all" target="_blank">linkedin.com/in/devarshi-patidar</a>
+        </li>
+      </ul>
+    </div>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="bg-gray-100 py-16">
+  <section id="skills" class="bg-gray-100 py-16 px-6">
     <div class="container mx-auto text-center">
-      <h3 class="text-3xl font-bold mb-8">Skills</h3>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="p-6 bg-white shadow rounded-xl">Java</div>
-        <div class="p-6 bg-white shadow rounded-xl">Spring Boot</div>
-        <div class="p-6 bg-white shadow rounded-xl">Angular</div>
-        <div class="p-6 bg-white shadow rounded-xl">SQL</div>
-        <!-- <div class="p-6 bg-white shadow rounded-xl"></div> -->
-        <!-- <div class="p-6 bg-white shadow rounded-xl">SAP</div> -->
-        <div class="p-6 bg-white shadow rounded-xl">Microservices</div>
-        <div class="p-6 bg-white shadow rounded-xl">REST APIs</div>
+      <h3 class="text-2xl sm:text-3xl font-bold mb-8">Skills</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+        <div class="p-4 sm:p-6 bg-white shadow rounded-xl">Java</div>
+        <div class="p-4 sm:p-6 bg-white shadow rounded-xl">Spring Boot</div>
+        <div class="p-4 sm:p-6 bg-white shadow rounded-xl">Angular</div>
+        <div class="p-4 sm:p-6 bg-white shadow rounded-xl">SQL</div>
+        <div class="p-4 sm:p-6 bg-white shadow rounded-xl">MongoDB</div>
+        <div class="p-4 sm:p-6 bg-white shadow rounded-xl">SAP</div>
+        <div class="p-4 sm:p-6 bg-white shadow rounded-xl">Microservices</div>
+        <div class="p-4 sm:p-6 bg-white shadow rounded-xl">REST APIs</div>
       </div>
     </div>
   </section>
 
   <!-- Projects Section -->
   <section id="projects" class="container mx-auto py-16 px-6">
-    <h3 class="text-3xl font-bold text-center mb-10">Projects</h3>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="bg-white shadow-lg rounded-xl overflow-hidden hover:shadow-2xl transition">
-        <img src="https://source.unsplash.com/600x400/?code,project" alt="Project" />
-        <div class="p-6">
-          <h4 class="text-xl font-semibold">AgoSense</h4>
-          <p class="mt-2 text-gray-600">A microservices architecture project with Spring Boot, Angular and MySQL.</p>
+    <h3 class="text-2xl sm:text-3xl font-bold text-center mb-10">Projects</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      <!-- Project Cards -->
+      @for (item of projects; track $index) {
+      <div (click)="openProject(item.name)"
+        class="cursor-pointer bg-white shadow-lg rounded-xl overflow-hidden hover:shadow-2xl transition">
+        <img [src]="item.image" class="w-full h-48 object-cover" alt="Project" />
+        <div class="p-4 sm:p-6">
+          <h4 class="text-lg sm:text-xl font-semibold">{{ item.name }}</h4>
+          <p class="mt-2 text-gray-600">{{ item.description }}</p>
         </div>
       </div>
-      <div class="bg-white shadow-lg rounded-xl overflow-hidden hover:shadow-2xl transition">
-        <img src="https://source.unsplash.com/600x400/?app,design" alt="Project" />
-        <div class="p-6">
-          <h4 class="text-xl font-semibold">Project Two</h4>
-          <p class="mt-2 text-gray-600">Interactive dashboard with MySQL backend and data visualization.</p>
-        </div>
-      </div>
-      <div class="bg-white shadow-lg rounded-xl overflow-hidden hover:shadow-2xl transition">
-        <img src="https://source.unsplash.com/600x400/?website,tech" alt="Project" />
-        <div class="p-6">
-          <h4 class="text-xl font-semibold">Project Three</h4>
-          <p class="mt-2 text-gray-600">Responsive portal with authentication and report generation.</p>
-        </div>
-      </div>
+      }
+      <!-- Repeat for other projects -->
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="bg-gradient-to-r from-purple-600 to-blue-500 text-white py-16">
+  <!-- <section id="contact" class="bg-gradient-to-r from-purple-600 to-blue-500 text-white py-16">
     <div class="container mx-auto text-center">
       <h3 class="text-3xl font-bold mb-6">Get In Touch</h3>
       <p class="mb-8">I'm open to opportunities and collaborations.</p>
-      <a href="mailto:your.email@example.com" class="bg-white text-blue-600 px-6 py-3 rounded-full shadow hover:bg-gray-200 transition">
-        📧 your.emailexample.com
-      </a>
+      <form (ngSubmit)="sendEmail()" #contactForm="ngForm"  action="mailto:your.email&#64;example.com" method="POST" enctype="text/plain"
+        class="max-w-xl mx-auto mb-8 bg-white bg-opacity-10 p-6 rounded-xl shadow flex flex-col gap-4">
+        <input type="text" name="name" placeholder="Your Name" required
+          class="px-4 py-3 rounded bg-white text-gray-800 focus:outline-none" />
+        <input type="email" name="email" placeholder="Your Email" required
+          class="px-4 py-3 rounded bg-white text-gray-800 focus:outline-none" />
+        <textarea name="message" rows="4" placeholder="Your Message" required
+          class="px-4 py-3 rounded bg-white text-gray-800 focus:outline-none"></textarea>
+        <button type="submit"
+          class="bg-blue-600 text-white font-semibold px-6 py-3 rounded-full shadow hover:bg-blue-700 transition">
+          Send Message
+        </button>
+      </form>
     </div>
-  </section>
+  </section> -->
+
+  <section id="contact" class="bg-gradient-to-r from-purple-600 to-blue-500 text-white py-16">
+  <div class="container mx-auto max-w-lg text-center">
+    <h3 class="text-2xl sm:text-3xl font-bold mb-6">Get In Touch</h3>
+    <p class="mb-8">I'm open to opportunities and collaborations. Drop me a message 👇</p>
+
+    <form (ngSubmit)="sendEmail()" #contactForm="ngForm" class="space-y-4 bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg text-left">
+      <!-- Name -->
+      <input type="text" name="name" [(ngModel)]="formData.from_name" required
+        class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+        placeholder="Your Name" />
+
+      <!-- Email -->
+      <input type="email" name="email" [(ngModel)]="formData.from_email" required
+        class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+        placeholder="Your Email" />
+
+      <!-- Message -->
+      <textarea name="message" [(ngModel)]="formData.message" required rows="4"
+        class="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+        placeholder="Your Message"></textarea>
+
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="isLoading"
+        class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition">
+        {{ isLoading ? 'Sending...' : 'Send Message' }}
+      </button>
+    </form>
+
+    <!-- Status Message -->
+    <p *ngIf="statusMessage" class="mt-4 text-white font-medium">{{ statusMessage }}</p>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer class="text-center py-6 bg-gray-900 text-gray-400">
     © 2025 Devarshi | All Rights Reserved
   </footer>
+</div>
