@@ -29,10 +29,10 @@
     <!-- Mobile Menu -->
     <div *ngIf="isMenuOpen" class="md:hidden bg-white bg-gray-800 shadow-md">
       <ul class="flex flex-col space-y-4 p-6">
-        <li><a routerLink="/about" (click)="closeMenu()">About</a></li>
-        <li><a routerLink="/skills" (click)="closeMenu()">Skills</a></li>
-        <li><a routerLink="/projects" (click)="closeMenu()">Projects</a></li>
-        <li><a routerLink="/contact" (click)="closeMenu()">Contact</a></li>
+        <li><a href="#about" (click)="closeMenu()">About</a></li>
+        <li><a href="#skills" (click)="closeMenu()">Skills</a></li>
+        <li><a href="#projects" (click)="closeMenu()">Projects</a></li>
+        <li><a href="#contact" (click)="closeMenu()">Contact</a></li>
       </ul>
     </div>
   </header>
