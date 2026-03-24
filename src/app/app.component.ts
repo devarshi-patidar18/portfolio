@@ -2,10 +2,13 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+import { ResumeComponent } from "./resume/resume.component";
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink, ResumeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -19,10 +22,10 @@ export class AppComponent {
   isLoading = false;
   statusMessage = '';
 
-  // Replace these with your EmailJS keys
-  serviceID = 'service_tx0p4ia';
-  templateID = 'template_iixn4ol';
-  publicKey = '866dzFd3XpsCrqvPj';
+  // EmailJS configuration from environment
+  serviceID = environment.emailjs.serviceID;
+  templateID = environment.emailjs.templateID;
+  publicKey = environment.emailjs.publicKey;
 
 
   ngOnInit() {
