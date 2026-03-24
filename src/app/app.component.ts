@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { environment } from '../environments/environment';
+import { ResumeComponent } from "./resume/resume.component";
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink, ResumeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
